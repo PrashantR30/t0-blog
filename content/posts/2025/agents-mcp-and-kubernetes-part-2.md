@@ -58,6 +58,8 @@ schema:
   audience: "Developers, DevOps Engineers, Platform Engineers"
   proficiencyLevel: "Intermediate to Advanced"
 
+mermaid: true
+
 image: "images/agents-mcp-and-kubernetes/part-2.png"
 ---
 
@@ -252,11 +254,7 @@ flowchart LR
 
 ## How everything works
 
-Workloads join the mesh by labeling the namespace:
-
-```bash
-istio.io/dataplane-mode=ambient
-```
+Workloads join the mesh by labeling the namespace: `istio.io/dataplane-mode=ambient`
 
 ### Immediate capabilities (no pod restart required):
 
