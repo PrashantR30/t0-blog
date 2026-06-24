@@ -7,7 +7,7 @@
 
 ## Create or Edit Posts
 - Generate a draft with `hugo new posts/YYYY/your-title.md`; use ISO dates and fill required front matter (`title`, `date`, `author`, `description`, `draft`).
-- Keep `draft: true` until ready; flip to `false` for publication.
+- **Draft vs. published is managed through the PR process, NOT the `draft` flag.** Always set `draft: false`. Push the post to the fork (`origin`, `randybias/t0-blog`) `main` branch, which auto-builds the GitHub Pages preview site for review; the post only becomes public when a PR to the production blog (`Mirantis/t0-blog`) is merged. Do not use `draft: true` — GitHub Pages does not render draft posts, so it would defeat the preview. The fork-preview-then-PR-to-production flow is the gate, not the frontmatter flag.
 - Use clear headings, short paragraphs, and fenced code blocks with language hints (`bash`, `yaml`, `python`).
 - **Footnotes**: Use proper Markdown footnote syntax with colon after the marker:
   - Reference in text: `some text[^1]`
