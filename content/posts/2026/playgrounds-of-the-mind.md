@@ -29,7 +29,7 @@ The fundamental problem with existing approaches to making AI agents "secure"—
 
 The sandbox paradigm says: we know what the agent can and cannot do, what it can and cannot access, and we will build a hardened containment in which it is completely restricted. Lock it down. Predict everything in advance.
 
-Unfortunately, this runs counter to what we keep seeing in the wild: unrestricted, free agents (!) are more effective at their jobs. The more you wrap a straightjacket around OpenClaw or Hermes, the less useful they become.
+Unfortunately, this runs counter to what we keep seeing in the wild: unrestricted, free agents (!) are more effective at their jobs. The more you wrap a straightjacket around [OpenClaw](https://github.com/openclaw/openclaw) or [Hermes](https://github.com/nousresearch/hermes-agent), the less useful they become.
 
 So what is the alternative?
 
