@@ -15,14 +15,12 @@ draft: false
 
 description: "Why the sandbox 'straightjacket' approach to securing AI ops agents is fundamentally flawed, and what a 'playground' paradigm—autonomy within bounded infrastructure, vetted workflows, oversight, and greylisted boundaries—looks like instead."
 
-image: "/images/playgrounds-of-the-mind/cover.jpg"
+image: "/images/playgrounds-of-the-mind/cover.png"
 ---
 
 <style>
 pre, .highlight { overflow-x: auto; }
 pre code { display: block; white-space: pre; }
-table th { background: #f5f5f5; color: #111; }
-h2, h3, h4 { color: #111; }
 </style>
 
 ## Introduction
@@ -35,11 +33,11 @@ Unfortunately, this runs counter to what we keep seeing in the wild: unrestricte
 
 So what is the alternative?
 
-The alternative is what I call the **playground**. Rather than trying to predict everything your agent might do and plan for it in advance, you create a safe space—the playground—in which it operates as an unprivileged user, yet with relatively full autonomy. It can install its own software, write to disk, search the web, and so on. Much like a child at a playground—and let's be honest, in the AI era we are effectively managing [idiot savants](https://t0.mirantis.com/agents-dont-understand-ops/)—agents need oversight and rules. In the playground paradigm, agents are free within their running environment to do whatever they need to do for their tasks, but at certain key boundaries, certain rules are enforced. Meanwhile, everything they do is monitored, logged, and an "adult" can step into the room as necessary to take action.
+The alternative is what I call the **playground**. Rather than trying to predict everything your agent might do and plan for it in advance, you create a safe space—the playground—in which it operates as an unprivileged user, yet with relatively full autonomy. It can install its own software, write to disk, search the web, and so on. Much like a child at a playground—and let's be honest, in the AI era we are effectively managing idiot savants—agents need oversight and rules. In the playground paradigm, agents are free within their running environment to do whatever they need to do for their tasks, but at certain key boundaries, certain rules are enforced. Meanwhile, everything they do is monitored, logged, and an "adult" can step into the room as necessary to take action.
 
 ## The Playground Paradigm in Detail
 
-Let's talk about what an agentic playground actually looks like in the context of agentic ops (aka "[AIOps](https://t0.mirantis.com/mcp-changes-aiops/)," although that term is now badly overloaded).
+Let's talk about what an agentic playground actually looks like in the context of agentic ops (aka "[AIOps](https://en.wikipedia.org/wiki/AIOps)," although that term is now badly overloaded).
 
 If you were to write this up as a system/agent prompt, it would read something like this:
 
@@ -58,7 +56,7 @@ Let's take these one at a time.
 
 **Playground infrastructure** is a container, a VM, or the like, with full non-root access, the ability to install software and tools as needed, and room to run multiple agents as necessary.
 
-**Pre-vetted workflows** can be created through mechanisms such as [Swamp](https://swamp.club), precreated TypeScript DAGs, or a custom mechanism. Workflows are created through a [human-in-the-loop](https://en.wikipedia.org/wiki/Human-in-the-loop) (HITL) process, provided in the playground, then signed and made immutable. Each workflow carries a specific digital identity that the boundary enforcement mechanism can validate. All workflow runs are fully auditable and leave append-only entries in immutable logs. Agents can even draft new workflows for humans to approve—that's part of the job.
+**Pre-vetted workflows** can be created through mechanisms such as [Swamp](https://swamp.club), precreated TypeScript DAGs, or a custom mechanism. Swamp's own framing—[deterministic automation for a probabilistic system](https://stack72.dev/deterministic-automation-for-a-probabilistic-system/)—captures exactly why this layer matters. Workflows are created through a [human-in-the-loop](https://en.wikipedia.org/wiki/Human-in-the-loop) (HITL) process, provided in the playground, then signed and made immutable. Each workflow carries a specific digital identity that the boundary enforcement mechanism can validate. All workflow runs are fully auditable and leave append-only entries in immutable logs. Agents can even draft new workflows for humans to approve—that's part of the job.
 
 The **nanny agent** is a security mechanism, possibly at least partly agentic itself, whose only job is oversight of the agents in the playground. The nanny has limited external access and runs in a restrictive sandbox of its own—outside the playground. Its job is to watch for obvious attempts by the playground agents to exceed their authority, and potentially to shut down a rogue agent proactively.
 
